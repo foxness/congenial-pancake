@@ -16,7 +16,7 @@ dataset['target'] = np.array([line[-1] for line in lines])
 
 X_train, X_test, y_train, y_test = train_test_split(dataset['data'], dataset['target'], random_state=0)
 
-logreg = LogisticRegression(solver='lbfgs', max_iter=10000, multi_class='auto')
+logreg = LogisticRegression(C=10, solver='lbfgs', max_iter=10000, multi_class='auto')
 logreg.fit(X_train, y_train)
 print("Training set score: {:.3f}".format(logreg.score(X_train, y_train)))
 print("Test set score: {:.3f}".format(logreg.score(X_test, y_test)))
